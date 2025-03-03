@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div id="welcome-screen" class="screen">
+        <h1>Cosmic Tic Tac Toe</h1>
+        <p>Choose your game mode:</p>
+        <button class="mode-button" onclick="chooseMode('friend')">Play with a Friend</button>
+        <button class="mode-button" onclick="chooseMode('ai')">Play with AI</button>
+
+        <div id="player-setup" class="setup-container hidden">
+            <h2>Enter Player Name(s)</h2>
+            <input type="text" id="player1" placeholder="Your Name">
+            <input type="text" id="player2" placeholder="Friend's Name" class="hidden">
+            <div id="xo-selection">
+                <h2>Choose X or O</h2>
+                <button class="xo-button" onclick="chooseXO('X')">X</button>
+                <button class="xo-button" onclick="chooseXO('O')">O</button>
+            </div>
+            <div id="difficulty-selection" class="hidden">
+                <h2>Select Difficulty</h2>
+                <button class="difficulty-button" data-difficulty="easy" onclick="setDifficulty('easy')">Easy</button>
+                <button class="difficulty-button" data-difficulty="medium" onclick="setDifficulty('medium')">Medium</button>
+                <button class="difficulty-button" data-difficulty="hard" onclick="setDifficulty('hard')">Hard</button>
+            </div>
+            <p id="error-message" class="error-message hidden">Please fill all fields and choose a difficulty.</p>
+            <button class="start-button" onclick="startGame()">Start Game</button>
+        </div>
+    </div>
+
+    <div id="game-screen" class="screen hidden">
+        <h2 id="turn-indicator">X's Turn</h2>
+        <div id="board" class="board"></div>
+        <div id="winning-line" class="hidden"></div>
+    </div>
+
+    <div id="winner-box" class="hidden">
+        <h2 id="winner-message"></h2>
+        <button class="play-again-button" onclick="playAgain()">Play Again</button>
+        <button class="start-over-button" onclick="startOver()">Start Over</button>
+    </div>
+
+    <canvas id="confetti-canvas" style="position: fixed; top: 0; left: 0; pointer-events: none;"></canvas>
+
+    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.4.0/canvas-confetti.min.js"></script>
+</body>
+</html>
